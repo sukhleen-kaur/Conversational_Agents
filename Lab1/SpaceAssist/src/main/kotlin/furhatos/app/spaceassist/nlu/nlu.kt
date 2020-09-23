@@ -49,14 +49,16 @@ class ProvideFurtherDetails(var guestName : PersonName? = null, var duration: Nu
                 "My name is @guestName, I would like to stay for @duration days in the @roomType class")
     }
 }
+/*List for saving the activites of the user*/
 class ActivityList : ListEntity<Activities>()
 
+/*Possible activities*/
 class Activities : EnumEntity(stemming = true, speechRecPhrases = true){
     override fun getEnum(lang: Language): List<String> {
         return listOf("Skiing", "Tennis", "Badminton", "Zombie Survival")
     }
 }
-
+/*Uer provides the activities they want to do*/
 class ProvideActivities(var activities : ActivityList? = null):Intent(){
     override fun getExamples(lang: Language): List<String>{
         return listOf("@activities",
@@ -64,6 +66,7 @@ class ProvideActivities(var activities : ActivityList? = null):Intent(){
     }
 }
 
+/*User wants to start over*/
 class StartOver : Intent(){
     override fun getExamples(lang: Language): List<String> { // user asking to check in
         return listOf("I would like to start over",

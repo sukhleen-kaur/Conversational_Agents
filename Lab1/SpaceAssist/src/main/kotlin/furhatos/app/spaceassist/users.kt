@@ -6,7 +6,7 @@ import furhatos.records.User
 import furhatos.nlu.common.Number
 import furhatos.nlu.common.PersonName
 
-/* usser data */
+/* user data */
 class CheckInData(
         var guestNo : Number? = null,
         var guestName : PersonName? = null,

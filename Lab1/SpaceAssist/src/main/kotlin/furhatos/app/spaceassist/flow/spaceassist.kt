@@ -6,8 +6,8 @@ import furhatos.flow.kotlin.*
 import furhatos.nlu.common.*
 import furhatos.nlu.common.Number
 
-var AVAILABLECITIZENROOM = 10
-var AVAILABLESUITEROOM = 3
+var AVAILABLECITIZENROOM = 10 //total number of citizen rooms
+var AVAILABLESUITEROOM = 3 //total number of suite rooms
 
 /* When the user enter, initial greeting */
 val Start = state(Interaction) {
