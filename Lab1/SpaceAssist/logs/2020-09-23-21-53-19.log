@@ -1,0 +1,41 @@
+21:53:19 [Skill] INFO  Skill:139 - Connecting to Furhat server on 0.0.0.0:1932
+21:53:19 [SpaceAssistSkill] INFO  SpaceAssistSkill:166 - Starting skill
+21:54:30 [SpaceAssistSkill] ERROR TriggerRunner: 33 - Error
+java.lang.NumberFormatException: For input string: "three"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at furhatos.app.spaceassist.flow.SpaceassistKt.CountRoomsNeeded(spaceassist.kt:320)
+	at furhatos.app.spaceassist.flow.SpaceassistKt.CheckRoomAvailability(spaceassist.kt:297)
+	at furhatos.app.spaceassist.flow.SpaceassistKt$FurtherDetails$1$1.invoke(spaceassist.kt:170)
+	at furhatos.app.spaceassist.flow.SpaceassistKt$FurtherDetails$1$1.invoke(spaceassist.kt)
+	at furhatos.flow.kotlin.TriggerRunner.run(TriggerRunner.kt:31)
+	at furhatos.flow.kotlin.Runner.runTrigger(Runner.kt:204)
+	at furhatos.flow.kotlin.Runner.runTrigger$default(Runner.kt:176)
+	at furhatos.flow.kotlin.StateRunner.run(StateRunner.kt:57)
+	at furhatos.flow.kotlin.Flow.tailRecRun(Flow.kt:146)
+	at furhatos.flow.kotlin.Flow.run(Flow.kt:110)
+	at furhatos.app.spaceassist.SpaceAssistSkill.start(main.kt:9)
+	at furhatos.skills.Skill.initializeSkill(Skill.java:169)
+	at furhatos.skills.Skill.lambda$startSkill$2(Skill.java:227)
+	at java.lang.Thread.run(Thread.java:748)
+22:00:30 [SpaceAssistSkill] ERROR TriggerRunner: 33 - Error
+java.lang.NumberFormatException: For input string: "three"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at furhatos.app.spaceassist.flow.SpaceassistKt.CountRoomsNeeded(spaceassist.kt:320)
+	at furhatos.app.spaceassist.flow.SpaceassistKt.CheckRoomAvailability(spaceassist.kt:297)
+	at furhatos.app.spaceassist.flow.SpaceassistKt$FurtherDetails$1$1.invoke(spaceassist.kt:170)
+	at furhatos.app.spaceassist.flow.SpaceassistKt$FurtherDetails$1$1.invoke(spaceassist.kt)
+	at furhatos.flow.kotlin.TriggerRunner.run(TriggerRunner.kt:31)
+	at furhatos.flow.kotlin.Runner.runTrigger(Runner.kt:204)
+	at furhatos.flow.kotlin.Runner.runTrigger$default(Runner.kt:176)
+	at furhatos.flow.kotlin.StateRunner.run(StateRunner.kt:57)
+	at furhatos.flow.kotlin.Flow.tailRecRun(Flow.kt:146)
+	at furhatos.flow.kotlin.Flow.run(Flow.kt:110)
+	at furhatos.app.spaceassist.SpaceAssistSkill.start(main.kt:9)
+	at furhatos.skills.Skill.initializeSkill(Skill.java:169)
+	at furhatos.skills.Skill.lambda$startSkill$2(Skill.java:227)
+	at java.lang.Thread.run(Thread.java:748)
+22:01:57 [Broker Client] ERROR BrokerClient:152 - Unexpected disconnect from broker
