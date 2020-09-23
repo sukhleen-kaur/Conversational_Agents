@@ -4,6 +4,7 @@ import furhatos.nlu.*
 import furhatos.nlu.grammar.Grammar
 import furhatos.nlu.kotlin.grammar
 import furhatos.nlu.common.Number
+import furhatos.nlu.common.PersonName
 import furhatos.util.Language
 
 /* User wants to check in */
@@ -41,10 +42,36 @@ class Room : EnumEntity(stemming = true, speechRecPhrases = true) {
     }
 }
 /* User provides the further details */
-class ProvideFurtherDetails(var guestName: String? = null, var duration: Number? = null, var roomType : Room? = null):Intent() {
+class ProvideFurtherDetails(var guestName : PersonName? = null, var duration: Number? = null, var roomType : Room? = null):Intent() {
     override fun getExamples(lang: Language): List<String> {
         return listOf("@guestName, @duration, @roomType",
-                "My name is @guestName, for @duration days and @roomType class")
+                "@guestName, @duration days, @roomType class",
+                "My name is @guestName, I would like to stay for @duration days in the @roomType class")
     }
 }
+class ActivityList : ListEntity<Activities>()
+
+class Activities : EnumEntity(stemming = true, speechRecPhrases = true){
+    override fun getEnum(lang: Language): List<String> {
+        return listOf("Skiing", "Tennis", "Badminton", "Zombie Survival")
+    }
+}
+
+class ProvideActivities(var activities : ActivityList? = null):Intent(){
+    override fun getExamples(lang: Language): List<String>{
+        return listOf("@activities",
+        "I would like to do @activities")
+    }
+}
+
+class StartOver : Intent(){
+    override fun getExamples(lang: Language): List<String> { // user asking to check in
+        return listOf("I would like to start over",
+                "Start over",
+                "I'd like to check in again",
+                "Yes", "Yes, start over")
+    }
+}
+
+
 

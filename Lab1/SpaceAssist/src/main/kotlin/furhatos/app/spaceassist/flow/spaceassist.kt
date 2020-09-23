@@ -4,7 +4,10 @@ import furhatos.app.spaceassist.nlu.*
 import furhatos.app.spaceassist.order
 import furhatos.flow.kotlin.*
 import furhatos.nlu.common.*
-import furhatos.util.Language
+import furhatos.nlu.common.Number
+
+var AvailableCitizenRoom = 3
+var AvailableSuiteRoom = 3
 
 /* When the user enter, initial greeting */
 val Start = state(Interaction) {
@@ -19,7 +22,7 @@ val Start = state(Interaction) {
 }
 
 /* Ask initial question  */
-val WelcomeAboard = state(Interaction) {
+val WelcomeAboard : State = state(Interaction) {
     onEntry {
         furhat.ask("How can I help you?")
     }
@@ -99,6 +102,24 @@ val GuestNo = state(Interaction){
     }
 }
 
+val ChangedGuestNo: State = state(Interaction){
+    onResponse<ProvideGuestNumber> {
+        val guestNo = it.intent.guestNo
+        if (guestNo != null){
+            users.current.order.guestNo = guestNo
+            if(CheckRoomAvailability(users.current.order.roomType.toString(), users.current.order.guestNo)){
+                UpdateAvailableRooms(users.current.order.roomType.toString(), users.current.order.guestNo)
+                goto(AskWishes)
+            } else{
+                goto(NotEnoughRooms)
+            }
+        } else {
+            propagate()
+        }
+
+    }
+}
+
 /* Ask the number of guests the user has */
 val AskGuestNo = state(GuestNo){
     onEntry {
@@ -146,7 +167,14 @@ val FurtherDetails = state(Interaction){
             users.current.order.guestName = guestName
             users.current.order.duration = duration
             users.current.order.roomType = roomType
-            goto(AskWishes)
+            furhat.say("${CheckRoomAvailability(roomType.toString(), users.current.order.guestNo)}")
+            println(roomType.toString())
+            if(CheckRoomAvailability(roomType.toString(), users.current.order.guestNo)){
+                UpdateAvailableRooms(roomType.toString(), users.current.order.guestNo)
+                goto(AskWishes)
+            } else{
+                goto(NotEnoughRooms)
+            }
         } else {
             propagate()
         }
@@ -159,13 +187,54 @@ val AskFurtherDetails = state(FurtherDetails){
         furhat.ask("Perfect! Now, could you give me your name, " +
                 "how long you intend to stay on Starship Enterprise, " +
                 "and whether you would like a Suite-class room " +
-                "or a Citizen-class room?")
+                "or a Citizen-class room? The Suite-class rooms have 2 beds " +
+                "and the Citizen-class rooms have 1 bed.")
     }
+}
+
+val NotEnoughRooms = state(Interaction){
+    onEntry{
+
+        furhat.say("Unfortunately there are no rooms left of this kind. We only have " +
+                "${if(users.current.order.roomType.toString() == "citizen"){AvailableCitizenRoom}else{AvailableSuiteRoom}} " +
+                "rooms of this kind free.")
+        furhat.ask("Would  you like to change the number of people you are checking in?")
+    }
+    onResponse<Yes> {
+        goto(ChangeGuestNo)
+    }
+    onResponse<No> {
+        goto(CheckInCancel)
+    }
+    onTime(delay=100000){
+        goto(CheckInCancel)
+    }
+}
+
+val ChangeGuestNo = state(ChangedGuestNo){
+    onEntry {
+        furhat.say("Wonderful.")
+        furhat.ask("Please tell me how many guests you would like to check in.")
+    }
+}
+
+val CheckInCancel = state(Interaction){
+    onEntry {
+        furhat.ask("Alright then, please tell me if you'd like to start over. Otherwise, I wish you a good day.")
+    }
+    onResponse<StartOver>{
+        goto(WelcomeAboard)
+    }
+    onTime(delay=50000) {
+        goto(Start)
+    }
+
 }
 
 /* Ask user for their wishes */
 val AskWishes = state(Interaction){
     onEntry {
+        furhat.say("AFTER: So ${users.current.order.guestNo} guests then. We have ${AvailableCitizenRoom} Citizen rooms and ${AvailableSuiteRoom} Suite Rooms.")
         furhat.say("Amazing! The data has been entered to your name, " +
                 "${users.current.order.guestName}.")
         furhat.ask("Now, before asking you about the different activities we offer on board, " +
@@ -174,6 +243,10 @@ val AskWishes = state(Interaction){
     onResponse<No> {
         goto(NoWishes)
     }
+    onResponse<Yes>{
+        furhat.ask("What are your wishes?")
+    }
+
 }
 
 /*If there are no wishes*/
@@ -185,12 +258,27 @@ val NoWishes = state(Interaction){
 
 }
 
+val WhichActivities = state(Interaction) {
+    onResponse<ProvideActivities> {
+        val activities = it.intent.activities
+        if (activities != null) {
+            activities.list.forEach {
+                users.current.order.activities.list.add(it)
+            }
+            goto(EndState)
+        }
+        else {
+            propagate()
+        }
+    }
+}
+
 /* Ask if user interested in any of the activities */
-val AskActivities = state(Interaction){
+val AskActivities = state(WhichActivities){
     onEntry {
         furhat.say("On Starship Enterprise we offer numerous simulated activities, namely: " +
-                "Skiing, Tennis, Badminton, and Zombie Survival. Please tell me which ones of those " +
-                "activities you would like to sign up for today.")
+                "${Activities().optionsToText()}.")
+        furhat.ask("Please tell me which ones of those activities you would like to sign up for today.")
     }
     onResponse<No> {
         goto(EndState)
@@ -199,10 +287,46 @@ val AskActivities = state(Interaction){
 
 val EndState = state(Interaction){
     onEntry {
-        furhat.say("Unerstood. You have now successfully checked in. You will soon be teleported " +
+        furhat.say("Understood. You have now successfully checked in. You will soon be teleported " +
                 "to your room, and your luggage will be delivered by our staff. We hope your stay at Starship Enterprise " +
                 "will be a fun and relaxing one.")
         goto(Idle)
     }
 }
 
+fun CheckRoomAvailability(roomType: String, guestNo: Number?): Boolean {
+    val roomNo = CountRoomsNeeded(roomType, guestNo)
+    var RoomAvailable = true
+    if(roomType == "citizen"){
+        RoomAvailable = (AvailableCitizenRoom - roomNo) >= 0
+    } else if(roomType == "suite"){
+        RoomAvailable = (AvailableSuiteRoom - roomNo) >= 0
+    }
+    return RoomAvailable
+}
+
+fun UpdateAvailableRooms(roomType: String, guestNo: Number?) {
+    val guestNoInt = guestNo
+    val roomNo = CountRoomsNeeded(roomType, guestNoInt)
+    if(roomType == "citizen"){
+        AvailableCitizenRoom -= roomNo
+    } else if(roomType == "suite"){
+        AvailableSuiteRoom -= roomNo
+    }
+}
+
+fun CountRoomsNeeded(roomType: String, guestNo: Number?): Int {
+    var roomNo = 0
+    var guestNoStr = guestNo.toString()
+    var guestNoInt = guestNoStr.toInt()
+    if(roomType == "citizen"){
+        roomNo = guestNoInt
+    } else if(roomType == "suite"){
+        roomNo = guestNoInt/2
+        roomNo = guestNoInt/2
+        if (guestNoInt%2 != 0){
+            roomNo++
+        }
+    }
+    return roomNo
+}
