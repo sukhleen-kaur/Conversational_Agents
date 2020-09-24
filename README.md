@@ -1,2 +1,2 @@
-# ConvAgents
-Labs for conversational agents cs4270 @TU Delft
+# Conversational Agents
+Labs for conversational agents CS4270 TU Delft
