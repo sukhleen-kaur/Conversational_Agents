@@ -1,0 +1,3 @@
+18:38:44 [Skill] INFO  Skill:139 - Connecting to Furhat server on 0.0.0.0:1932
+18:38:44 [SpaceAssistSkill] INFO  SpaceAssistSkill:166 - Starting skill
+18:41:05 [Broker Client] ERROR BrokerClient:152 - Unexpected disconnect from broker

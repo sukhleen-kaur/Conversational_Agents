@@ -2,6 +2,7 @@ package furhatos.app.spaceassist
 
 import furhatos.app.spaceassist.nlu.ActivityList
 import furhatos.app.spaceassist.nlu.Room
+import furhatos.app.spaceassist.nlu.WishList
 import furhatos.records.User
 import furhatos.nlu.common.Number
 import furhatos.nlu.common.PersonName
@@ -12,7 +13,8 @@ class CheckInData(
         var guestName : PersonName? = null,
         var duration : Number? = null,
         var roomType : Room? = null,
-        var activities : ActivityList = ActivityList()
+        var activities : ActivityList = ActivityList(),
+        var wishes : WishList = WishList()
 )
 
 val User.order : CheckInData

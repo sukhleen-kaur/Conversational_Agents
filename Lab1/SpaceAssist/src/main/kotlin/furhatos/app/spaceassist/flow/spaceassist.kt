@@ -115,8 +115,8 @@ val ChangedGuestNo: State = state(Interaction){
         val guestNo = it.intent.guestNo
         if (guestNo != null){
             users.current.order.guestNo = guestNo
-            if(CheckRoomAvailability(users.current.order.roomType.toString(), users.current.order.guestNo)){
-                UpdateAvailableRooms(users.current.order.roomType.toString(), users.current.order.guestNo)
+            if(CheckRoomAvailability(users.current.order.roomType?.value.toString(), users.current.order.guestNo)){
+                UpdateAvailableRooms(users.current.order.roomType?.value.toString(), users.current.order.guestNo)
                 goto(AskWishes)
             } else{
                 goto(NotEnoughRooms)
@@ -182,8 +182,8 @@ val FurtherDetails = state(Interaction){
             users.current.order.guestName = guestName
             users.current.order.duration = duration
             users.current.order.roomType = roomType
-            if(CheckRoomAvailability(roomType.toString(), users.current.order.guestNo)){
-                UpdateAvailableRooms(roomType.toString(), users.current.order.guestNo)
+            if(CheckRoomAvailability(roomType.value.toString(), users.current.order.guestNo)){
+                UpdateAvailableRooms(roomType.value.toString(), users.current.order.guestNo)
                 goto(AskWishes)
             } else{
                 goto(NotEnoughRooms)
@@ -217,7 +217,7 @@ val NotEnoughRooms = state(Interaction){
     onEntry{
 
         furhat.say("Unfortunately there are no rooms left of this kind. We only have " +
-                "${if(users.current.order.roomType.toString().equals("Citizen",ignoreCase = true)){AVAILABLECITIZENROOM}else{AVAILABLESUITEROOM}} " +
+                "${if(users.current.order.roomType?.value.toString().equals("Citizen",ignoreCase = true)){AVAILABLECITIZENROOM}else{AVAILABLESUITEROOM}} " +
                 "rooms of this kind free.")
         furhat.ask("Would  you like to change the number of people you are checking in?")
     }
@@ -228,7 +228,7 @@ val NotEnoughRooms = state(Interaction){
     onResponse<No> {
         goto(CheckInCancel)
     }
-    onTime(delay=100000){
+    onNoResponse{
         goto(CheckInCancel)
     }
 }
@@ -252,14 +252,28 @@ val CheckInCancel = state(Interaction){
     onResponse<StartOver>{
         goto(WelcomeAboard)
     }
-    onTime(delay=50000) {
+    onNoResponse {
         goto(Start)
     }
 
 }
 
+/*Add the wishes of the user to their corresponding list*/
+val WhichWishes : State = state(Interaction) {
+    onResponse<GetWish> {
+        val wish = it.intent.wish
+        if (wish != null) {
+            users.current.order.wishes.list.add(wish)
+            goto(MoreWishes)
+        }
+        else {
+            propagate()
+        }
+    }
+}
+
 /* Ask user for their wishes */
-val AskWishes = state(Interaction){
+val AskWishes = state(WhichWishes){
     onEntry {
         furhat.say("Amazing! The data has been entered to your name, " +
                 "${users.current.order.guestName}.")
@@ -272,10 +286,30 @@ val AskWishes = state(Interaction){
     onResponse<No> {
         goto(NoWishes)
     }
-    onResponse<Yes>{
-        furhat.ask("What are your wishes?")
+    onResponse<Yes> {
+        reentry()
     }
 
+}
+
+/*Ask user if they have more wishes*/
+val MoreWishes = state(WhichWishes){
+    onEntry{
+        furhat.say("Understood.")
+        furhat.ask("Anything else?")
+    }
+    onResponse<No> {
+        goto(EndOfWishes)
+    }
+}
+
+/*Inform the user that the wishes are noted and move on to asking activities*/
+val EndOfWishes = state(Interaction){
+    onEntry {
+        furhat.say("Alright, your demands have been noted and will be read by our crew.")
+        furhat.say("Let's move on then.")
+        goto(AskActivities)
+    }
 }
 
 /*If there are no wishes*/

@@ -38,7 +38,7 @@ class ProvideGuestNumber(var guestNo : Number? = null):Intent(){
 /* Class for the type of rooms */
 class Room : EnumEntity(stemming = true, speechRecPhrases = true) {
     override fun getEnum(lang: Language): List<String> {
-        return listOf("Citizen", "Suite")
+        return listOf("Citizen", "Suite: suite, sweet, suit")
     }
 }
 /* User provides the further details */
@@ -46,7 +46,8 @@ class ProvideFurtherDetails(var guestName : PersonName? = null, var duration: Nu
     override fun getExamples(lang: Language): List<String> {
         return listOf("@guestName, @duration, @roomType",
                 "@guestName, @duration days, @roomType class",
-                "My name is @guestName, I would like to stay for @duration days in the @roomType class")
+                "My name is @guestName, I would like to stay for @duration days in the @roomType class",
+                "I am @guestName, staying @duration days in a @roomType class room")
     }
 }
 /*List for saving the activites of the user*/
@@ -74,6 +75,22 @@ class StartOver : Intent(){
                 "I'd like to check in again",
                 "Yes", "Yes, start over")
     }
+}
+
+/*List for saving the wishes of the user*/
+class WishList : ListEntity<WishEntity>()
+
+class WishEntity: WildcardEntity("wish", GetWish())
+
+/*User tells their wishes*/
+class GetWish(): Intent() {
+    var wish: WishEntity?= null
+    override fun getExamples(lang: Language): List<String> {
+        return listOf(
+                "I would like @wish", "@wish please", "@wish", "yes, @wish", "I want @wish", "Can I @wish", "May I @wish"
+       );
+    }
+
 }
 
 
