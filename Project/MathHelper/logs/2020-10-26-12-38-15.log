@@ -1,0 +1,4 @@
+12:38:15 [Skill] INFO  Skill:139 - Connecting to Furhat server on 0.0.0.0:1932
+12:38:15 [MathhelperSkill] INFO  MathhelperSkill:166 - Starting skill
+12:38:16 [MathhelperSkill] WARN  FurhatSpeech:285 - Could not find voice: ? (en-CA) - Amazon Polly
+12:38:47 [Broker Client] ERROR BrokerClient:152 - Unexpected disconnect from broker

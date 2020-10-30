@@ -1,0 +1,3 @@
+13:10:24 [Skill] INFO  Skill:139 - Connecting to Furhat server on 0.0.0.0:1932
+13:10:24 [MathhelperSkill] INFO  MathhelperSkill:166 - Starting skill
+13:10:25 [MathhelperSkill] WARN  FurhatSpeech:285 - Could not find voice: ? (en-CA) - Amazon Polly

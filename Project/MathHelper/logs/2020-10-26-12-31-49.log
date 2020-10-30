@@ -1,0 +1,4 @@
+12:31:49 [Skill] INFO  Skill:139 - Connecting to Furhat server on 0.0.0.0:1932
+12:31:49 [MathhelperSkill] INFO  MathhelperSkill:166 - Starting skill
+12:31:50 [MathhelperSkill] WARN  FurhatSpeech:285 - Could not find voice: Salli (en-CA) - Unknown
+12:32:51 [Broker Client] ERROR BrokerClient:152 - Unexpected disconnect from broker
