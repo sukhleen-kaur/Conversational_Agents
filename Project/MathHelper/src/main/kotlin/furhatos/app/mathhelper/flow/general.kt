@@ -13,6 +13,9 @@ val Idle: State = state {
         furhat.voice = PollyNeuralVoice(language= Language.ENGLISH_US, gender=Gender.FEMALE, pitch = "high")
         furhat.voice = PollyNeuralVoice.Salli()
 
+//        furhat.voice = PollyVoice(language= Language.ENGLISH_US, gender=Gender.FEMALE, pitch = "high")
+//        furhat.voice = PollyVoice.Salli()
+
         if (users.count > 0) {
             furhat.attend(users.random)
             goto(Start)

@@ -1,0 +1,185 @@
+23:11:51 [Skill] INFO  Skill:139 - Connecting to Furhat server on 0.0.0.0:1932
+23:11:51 [MathhelperSkill] INFO  MathhelperSkill:166 - Starting skill
+23:11:52 [MathhelperSkill] ERROR InitRunner: 28 - java.lang.NullPointerException
+23:11:53 [ErrorLoggingThread] ERROR MathhelperSkill:459 - java.lang.NullPointerException
+	at furhatos.skills.FurhatSpeech.getVoices(FurhatSpeech.java:294)
+	at furhatos.skills.FurhatEventWrapper.getVoices(FurhatEventWrapper.java:31)
+	at furhatos.skills.FurhatSpeech.getVoice(FurhatSpeech.java:303)
+	at furhatos.skills.FurhatEventWrapper.getVoice(FurhatEventWrapper.java:31)
+	at furhatos.skills.FurhatSpeech.setVoiceAndInputLanguage(FurhatSpeech.java:283)
+	at furhatos.skills.FurhatEventWrapper.setVoiceAndInputLanguage(FurhatEventWrapper.java:31)
+	at furhatos.flow.kotlin.Furhat.setVoice(Furhat.kt:698)
+	at furhatos.app.mathhelper.flow.GeneralKt$Idle$1$1.invoke(general.kt:13)
+	at furhatos.app.mathhelper.flow.GeneralKt$Idle$1$1.invoke(general.kt)
+	at furhatos.flow.kotlin.InitRunner.run(InitRunner.kt:25)
+	at furhatos.flow.kotlin.StateRunner.runInitTrigger(StateRunner.kt:215)
+	at furhatos.flow.kotlin.StateRunner.run(StateRunner.kt:64)
+	at furhatos.flow.kotlin.Flow.tailRecRun(Flow.kt:146)
+	at furhatos.flow.kotlin.Flow.run(Flow.kt:110)
+	at furhatos.app.mathhelper.MathhelperSkill.start(main.kt:9)
+	at furhatos.skills.Skill.initializeSkill(Skill.java:169)
+	at furhatos.skills.Skill.lambda$startSkill$2(Skill.java:227)
+	at java.lang.Thread.run(Thread.java:748)
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add GetVersion
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSkillList
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add RequestModelAssetList
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestSkillList
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestFace
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestFurhatGaze
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestRecognizer
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseRecognizer
+Flow - unknown - A flow's queue is full, could not add RequestAcapelaCredentials
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestVoice
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestSpeaker
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseVoice
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestMicrophones
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseMicrophones
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionSituationDetect
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSpeaker
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestUsers
+Flow - unknown - A flow's queue is full, could not add furhatos.event.senses.SenseUserStatus
+Flow - unknown - A flow's queue is full, could not add availableWiFiNetworksRequest
+Flow - unknown - A flow's queue is full, could not add furhatos.event.senses.SenseUsers
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestSkill
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSkillList
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSkill
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSkillAutostart
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestSkillAutostart
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestGlobalGestures
+Flow - unknown - A flow's queue is full, could not add askRobotType
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSkillGUIList
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestCamera
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestWizardElements
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestInteractionSpaces
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.senses.SenseInteractionSpaces
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestSkillGUIList
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestRobotVersion
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestVersion
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add GetVersion
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionRealTimeAPISubscribe
+Flow - unknown - A flow's queue is full, could not add availableWiFiNetworksRequest
+Flow - unknown - A flow's queue is full, could not add RequestModelAssetList
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestSkillList
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestFace
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestFurhatGaze
+Flow - unknown - A flow's queue is full, could not add askRobotType
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestRecognizer
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseRecognizer
+Flow - unknown - A flow's queue is full, could not add RequestAcapelaCredentials
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestVoice
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestSpeaker
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestMicrophones
+Flow - unknown - A flow's queue is full, could not add furhatos.event.actions.ActionSituationDetect
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestUsers
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestSkill
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestSkillAutostart
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseVoice
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseMicrophones
+Flow - unknown - A flow's queue is full, could not add furhatos.event.senses.SenseUsers
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestGlobalGestures
+Flow - unknown - A flow's queue is full, could not add furhatos.event.senses.SenseUserStatus
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestCamera
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSpeaker
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestWizardElements
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestInteractionSpaces
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestSkillGUIList
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestRobotVersion
+Flow - unknown - A flow's queue is full, could not add furhatos.event.requests.RequestVersion
+Flow - unknown - A flow's queue is full, could not add GetVersion
+Flow - unknown - A flow's queue is full, could not add furhatos.event.senses.SenseInteractionSpaces
+Flow - unknown - A flow's queue is full, could not add availableWiFiNetworksRequest
+Flow - unknown - A flow's queue is full, could not add askRobotType
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSkill
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSkillAutostart
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSkillGUIList
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSkillList
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSkill
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSkillAutostart
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSkillGUIList
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSkillList
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSkill
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSkillAutostart
+Flow - unknown - A flow's queue is full, could not add furhatos.event.responses.ResponseSkillGUIList
+Flow - unknown - A flow's queue is full, could not add furhatos.event.senses.SenseUserStatus
+

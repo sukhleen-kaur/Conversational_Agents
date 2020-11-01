@@ -9,8 +9,7 @@ class KidInfo(
         var goldstars : Int = 0,
         var level : String? = null,
         var correctInRow : Int = 0,
-        var question : Int = 0,
-        var maxQuestions : Int = 5
+        var question : Int = 0
 )
 val User.info : KidInfo
     get() = data.getOrPut(KidInfo::class.qualifiedName, KidInfo())
