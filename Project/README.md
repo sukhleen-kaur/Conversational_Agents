@@ -8,19 +8,19 @@ This directory consists of two directories:
 - **emotiondetection**: which contains the emotion detection models
 
 ## Creating Conda Environment
-The first step is to create a conda environment with the appropriate python version
+The first step is to create a conda environment with the appropriate python version.
 ```
 conda create --name NAME python=3.7
 ```
 
 ## Install Dependencies
-In the conda env, download the required dependencies using ```pip```
+In the conda env, download the required dependencies using ```pip```.
 ```
 pip install -r requirements.txt
 ```
 
 ## Start the service
-The first step is to run the service for which we use [Ray Serve](https://docs.ray.io/en/master/serve/)
+The first step is to run the service for which we use [Ray Serve](https://docs.ray.io/en/master/serve/).
 ```
 ray start --head --port=6379
 python predict_web_service.py
