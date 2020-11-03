@@ -1,0 +1,19 @@
+21:06:50 [Skill] INFO  Skill:139 - Connecting to Furhat server on 0.0.0.0:1932
+21:06:50 [MathhelperSkill] INFO  MathhelperSkill:166 - Starting skill
+21:06:52 [ErrorLoggingThread] ERROR MathhelperSkill:459 - Exception in thread "MathhelperSkill" java.lang.ArrayIndexOutOfBoundsException: 0
+	at java.util.Arrays$ArrayList.get(Arrays.java:3841)
+	at furhatos.app.mathhelper.flow.GeneralKt.ReadEmotion(general.kt:72)
+	at furhatos.app.mathhelper.flow.GeneralKt$Interaction$1.invoke(general.kt:39)
+	at furhatos.app.mathhelper.flow.GeneralKt$Interaction$1.invoke(general.kt)
+	at furhatos.flow.kotlin.State.makeState$furhat_commons(State.kt:100)
+	at furhatos.flow.kotlin.StateBuilder.makeState$furhat_commons(StateBuilder.kt:300)
+	at furhatos.flow.kotlin.State.makeState$furhat_commons(State.kt:101)
+	at furhatos.flow.kotlin.StateRunner.<init>(StateRunner.kt:19)
+	at furhatos.flow.kotlin.StateRunner.<init>(StateRunner.kt:18)
+	at furhatos.flow.kotlin.Flow.tailRecRun(Flow.kt:145)
+	at furhatos.flow.kotlin.Flow.run(Flow.kt:110)
+	at furhatos.app.mathhelper.MathhelperSkill.start(main.kt:9)
+	at furhatos.skills.Skill.initializeSkill(Skill.java:169)
+	at furhatos.skills.Skill.lambda$startSkill$2(Skill.java:227)
+	at java.lang.Thread.run(Thread.java:748)
+

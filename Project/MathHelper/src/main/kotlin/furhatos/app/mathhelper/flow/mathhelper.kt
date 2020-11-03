@@ -9,6 +9,7 @@ import furhatos.nlu.common.Number
 import kotlin.random.Random
 
 var MAXQUESTIONS = 1
+var EMOTION = "neutral"
 
 //val Sadness = defineGesture("MySmile") {
 //    frame(0.32, 0.72) {
@@ -28,17 +29,10 @@ var MAXQUESTIONS = 1
 val Start = state(Interaction) {
     onEntry {
         furhat.gesture(Gestures.BigSmile)
-        //furhat.say("I am ${furhat.voice.emphasis("really")} happy to be here")
-//        random(
-//                {   furhat.say("${furhat.voice.prosody("Hey", pitch = "+10%", volume="loud")} there!") },
-//                {   furhat.say("Oh, ${furhat.voice.prosody("howdy", pitch = "x-high", volume="loud")} there!") }
-//        )
-                random(
+        random(
                 {   furhat.say("Hey there!") },
                 {   furhat.say("Oh, howdy there!") }
         )
-
-
         goto(Welcome)
     }
 }
