@@ -1,6 +1,5 @@
-package furhatos.app.mathhelper.flow
+package furhatos.app.mathhelper
 
-import furhatos.app.mathhelper.nlu.*
 import furhatos.records.User
 import furhatos.nlu.common.*
 
