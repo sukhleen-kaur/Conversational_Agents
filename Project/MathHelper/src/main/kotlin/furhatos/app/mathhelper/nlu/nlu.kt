@@ -18,9 +18,3 @@ class ProvideName(var name : PersonName? = null):Intent(){
         return listOf("@name", "My @name is", "I am @name")
     }
 }
-
-//class Level: EnumEntity(){
-//    override fun getEnum(lang: Language): List<String> {
-//        return listOf("Beginner", "Intermediate", "Advanced")
-//    }
-//}

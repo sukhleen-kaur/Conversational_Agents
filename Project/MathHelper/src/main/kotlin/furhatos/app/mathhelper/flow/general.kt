@@ -35,7 +35,7 @@ val Idle: State = state {
 }
 
 val Interaction: State = state {
-
+    // update emotion everytime it goes to interaction
     ReadEmotion()
 
     onUserLeave(instant = true) {
@@ -57,7 +57,7 @@ val Interaction: State = state {
 
 }
 
-
+// update emotion using the emotion classifier that is running in the back
 fun ReadEmotion(){
     //val data_directory = "/Users/sukhleenkaur/Documents/University/TU_Delft/MSc_2/ConvAgents/Labs/Project/emotiondetection/input"
     val data_directory = System.getProperty("user.dir")+"/../emotiondetection/input"
@@ -71,9 +71,9 @@ fun ReadEmotion(){
     }else {
         //println("List of files and directories in the specified directory:")
         //println("Sorted descending: ${fileList.sortedDescending()}")
-        var fullFilePath = data_directory + "/" + fileList.sortedDescending()[0]
-        var file = File(fullFilePath)
-        var data = file.readText(Charsets.UTF_8)
+        val fullFilePath = data_directory + "/" + fileList.sortedDescending()[0]
+        val file = File(fullFilePath)
+        val data = file.readText(Charsets.UTF_8)
         // println("calling api")
         EMOTION = khttp.get("http://localhost:8000/emotions", params = mapOf("np" to data)).text
 
@@ -81,6 +81,7 @@ fun ReadEmotion(){
         FileUtils.cleanDirectory(directoryPath)
 
     }
+    // print and save emotion and time to evaluate the accuracy of emotion detection
     val timestamp = Timestamp(System.currentTimeMillis())
     println("${timestamp}: $EMOTION")
 

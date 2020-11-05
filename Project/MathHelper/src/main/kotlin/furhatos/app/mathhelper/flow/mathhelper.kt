@@ -1,5 +1,5 @@
 package furhatos.app.mathhelper.flow
-
+import furhatos.gestures.BasicParams
 import furhatos.nlu.common.*
 import furhatos.flow.kotlin.*
 import furhatos.app.mathhelper.nlu.*
@@ -8,27 +8,48 @@ import furhatos.gestures.*
 import furhatos.nlu.common.Number
 import kotlin.random.Random
 
-var MAXQUESTIONS = 1
-var EMOTION = "neutral"
+var MAXQUESTIONS = 1 // number of questions to the user (not including first 2)
+var EMOTION = "neutral" // user emotion
 
-//val Sadness = defineGesture("MySmile") {
-//    frame(0.32, 0.72) {
-//        BasicParams.EXPR_SAD to 0.5
-//    }
-//    frame(0.2, 0.72){
-//        BasicParams.BROW_DOWN_LEFT to 2.0
-//        BasicParams.BROW_DOWN_RIGHT to 2.0
-//    }
-//    frame(0.16, 0.72){
-//        BasicParams.BLINK_LEFT to 0.1
-//        BasicParams.BLINK_RIGHT to 0.1
-//    }
-//    reset(1.04)
-//}
+val Sadness = defineGesture{
+    frame(0.32, 0.72) {
+        BasicParams.EXPR_SAD to 0.5
+    }
+    frame(0.2, 0.72){
+        BasicParams.BROW_DOWN_LEFT to 2.0
+        BasicParams.BROW_DOWN_RIGHT to 2.0
+    }
+    frame(0.16, 0.72){
+        BasicParams.BLINK_LEFT to 0.1
+        BasicParams.BLINK_RIGHT to 0.1
+    }
+    reset(1.04)
+}
 
+val HeadDown = defineGesture{
+    frame(0.00, 2.0){
+        BasicParams.NECK_ROLL to 12.0
+
+        BasicParams.EXPR_SAD to 12.0
+
+        BasicParams.BROW_UP_LEFT to 2.0
+        BasicParams.BROW_UP_RIGHT to 2.0
+
+        BasicParams.BROW_IN_LEFT to 2.0
+        BasicParams.BROW_IN_RIGHT to 2.0
+
+    }
+    reset(2.2)
+
+}
+
+// initial greeting
 val Start = state(Interaction) {
     onEntry {
-        furhat.gesture(Gestures.BigSmile)
+        if (EMOTION == "happy"){
+            furhat.gesture(Gestures.BigSmile)
+        }
+
         random(
                 {   furhat.say("Hey there!") },
                 {   furhat.say("Oh, howdy there!") }
@@ -50,6 +71,27 @@ val Welcome : State = state(Interaction){
     onResponse<Confused>{
         goto(Info)
     }
+    // if emotion is shown, act accordingly
+    onResponse{
+        if(EMOTION == "fearful" || EMOTION=="sad" || EMOTION=="disgusted"){
+            goto(Scared)
+        } else if (EMOTION=="surprised"){
+            goto(Info)
+        } else{
+            furhat.say("Sorry, I didn't understand that.")
+            reentry()
+        }
+    }
+    onNoResponse{
+        if(EMOTION == "fearful" || EMOTION=="sad" || EMOTION=="disgusted"){
+            goto(Scared)
+        } else if (EMOTION=="surprised"){
+            goto(Info)
+        } else{
+            furhat.say("Sorry, I didn't get that.")
+            reentry()
+        }
+    }
 }
 
 val Info = state(Interaction){
@@ -59,14 +101,35 @@ val Info = state(Interaction){
                 "subtraction and addition.")
         furhat.ask("Are you ready?")
     }
+    onReentry {
+        furhat.ask("Are you ready?")
+    }
     onResponse<Yes> {
         goto(AskKidNameInfo)
     }
     onResponse<No>{
         goto(Scared)
     }
+    // similarly to welcome
+    onResponse{
+        if(EMOTION == "fearful" || EMOTION=="sad" || EMOTION=="disgusted"){
+            goto(Scared)
+        } else{
+            furhat.say("Sorry, I didn't understand that.")
+            reentry()
+        }
+    }
+    onNoResponse{
+        if(EMOTION == "fearful" || EMOTION=="sad" || EMOTION=="disgusted"){
+            goto(Scared)
+        } else{
+            furhat.say("Sorry, I didn't get that.")
+            reentry()
+        }
+    }
 }
 
+// user detected to be scared, furhat tries to reassure user, then move on
 val Scared = state(Interaction){
     onEntry {
         furhat.gesture(Gestures.Smile)
@@ -82,6 +145,7 @@ val Scared = state(Interaction){
     }
 }
 
+// getting user data
 val KidName = state(Interaction){
     onResponse<ProvideName>{
         val name = it.intent.name
@@ -98,7 +162,7 @@ val KidName = state(Interaction){
 
 val AskKidName = state(KidName){
     onEntry {
-        //furhat.say("Great! My name is Sally and today I will ask you a few questions to help you learn math. If you get a question correct, you will get 1 gold star!")
+        furhat.say("Great! My name is Sally and today I will ask you a few questions to help you learn addition and subtraction. If you get a question correct, you will get 1 gold star!")
         furhat.ask("Now, before we begin, please tell me your name.")
     }
     onReentry {
@@ -109,24 +173,27 @@ val AskKidName = state(KidName){
 
 val AskKidNameInfo = state(KidName){
     onEntry {
-        furhat.say("Great! Today I will ask you a few questions to help you learn math. If you get a question correct, you will get 1 gold star!")
+        furhat.say("Great! Today I will ask you a few questions to help you learn addition and subtraction. If you get a question correct, you will get 1 gold star!")
         furhat.ask("Now, before we begin, please tell me your name.")
     }
     onReentry {
-        furhat.ask(" ")
+        furhat.ask("What is your name?")
     }
 
 }
 
 val GetStarted = state(Interaction){
     onEntry {
-        furhat.say("Okay then ${users.current.info.name}, let's get to it!")
+        furhat.gesture(Gestures.BigSmile)
+        furhat.say("Nice to meet you ${users.current.info.name}. Now, let's get to it!")
         goto(FirstQuestion)
     }
 }
 
+// first 2 questions to estimate user's level
 /*----------- INITIAL QUESTIONS ---------------*/
 
+// simple addition word question
 val FirstQuestion : State = state(Interaction){
     val first = Random.nextInt(1, 6)
     val second = Random.nextInt(1, 6)
@@ -134,17 +201,19 @@ val FirstQuestion : State = state(Interaction){
     val answer = first + second
     onEntry {
         furhat.ask(question)
-        furhat.listen(timeout = 10000)
+        furhat.listen(timeout = 15000)
     }
 
     onResponse<Number> {
         val userAnswer = it.intent.value
         if (userAnswer == answer){
+            furhat.gesture(Gestures.Nod(strength = 0.8))
             furhat.say("${userAnswer} is correct! Good job ${users.current.info.name}! Let's try another one!")
             users.current.info.goldstars += 1
             goto(SecondQuestionCorrect)
 
         } else {
+            furhat.gesture(HeadDown)
             furhat.say("The correct answer is ${answer}. That's okay, let's try another one!")
             goto(SecondQuestionWrong)
         }
@@ -156,6 +225,7 @@ val FirstQuestion : State = state(Interaction){
     }
 }
 
+// if user got first question wrong, ask a simple subtraction question
 val SecondQuestionWrong = state(Interaction){
     var first = Random.nextInt(1, 11)
     var second = Random.nextInt(1, 11)
@@ -163,7 +233,6 @@ val SecondQuestionWrong = state(Interaction){
         // make sure first variable never smaller than the second value
         first = second.also{second = first}
     }
-    //val question = EquationQuestion(first, second, "-")
     val answer = first - second
     onEntry {
         furhat.ask(EquationQuestion(first, second, "\u2212"))
@@ -172,11 +241,16 @@ val SecondQuestionWrong = state(Interaction){
     onResponse<Number> {
         val userAnswer = it.intent.value
         if (userAnswer == answer){
+            // nod when correct answer only when the user shows negative emotion to reassure the answer is correct
+            if (EMOTION == "sad" || EMOTION == "fearful" || EMOTION == "disgust"){
+                furhat.gesture(Gestures.Nod(strength = 0.8))
+            }
             furhat.say("${userAnswer} is correct! Good job ${users.current.info.name}! Let's try another one!")
             users.current.info.goldstars += 1
             users.current.info.level = "Intermediate"
             goto(ChooseQuestion)
         } else {
+            furhat.gesture(HeadDown)
             furhat.say("The correct answer is ${answer}. That's okay, let's try another one!")
             users.current.info.level = "Beginner"
             goto(ChooseQuestion)
@@ -188,7 +262,7 @@ val SecondQuestionWrong = state(Interaction){
         goto(ChooseQuestion)
     }
 }
-
+// if user got first question wrong, ask a slightly harder subtraction question
 val SecondQuestionCorrect = state(Interaction){
     var first = Random.nextInt(1, 21)
     var second = Random.nextInt(1, 21)
@@ -196,7 +270,6 @@ val SecondQuestionCorrect = state(Interaction){
         // make sure first variable never smaller than the second value
         first = second.also{second = first}
     }
-    //val question = EquationQuestion(first, second, "-")
     val answer = first - second
     onEntry {
         furhat.ask(EquationQuestion(first, second, "\u2212"))
@@ -205,11 +278,15 @@ val SecondQuestionCorrect = state(Interaction){
     onResponse<Number> {
         val userAnswer = it.intent.value
         if (userAnswer == answer){
+            if (EMOTION == "sad" || EMOTION == "fearful" || EMOTION == "disgust"){
+                furhat.gesture(Gestures.Nod(strength = 0.8))
+            }
             furhat.say("${userAnswer} is correct! Good job ${users.current.info.name}! Let's try another one!")
             users.current.info.goldstars += 1
             users.current.info.level = "Advanced"
             goto(ChooseQuestion)
         } else {
+            furhat.gesture(HeadDown)
             furhat.say("The correct answer is ${answer}. That's okay, let's try another one!")
             users.current.info.level = "Intermediate"
             goto(ChooseQuestion)
@@ -238,10 +315,14 @@ val SimpleWordAddition : State = state(Interaction){
     onResponse<Number> {
         val userAnswer = it.intent.value
         if (userAnswer == answer){
+            if (EMOTION == "sad" || EMOTION == "fearful" || EMOTION == "disgust"){
+                furhat.gesture(Gestures.Nod(strength = 0.8))
+            }
             furhat.say("${userAnswer} is correct!")
             goto(UpdateCorrect)
 
         } else {
+            furhat.gesture(HeadDown)
             furhat.say("The correct answer is ${answer}.")
             goto(UpdateWrong)
         }
@@ -270,9 +351,13 @@ val SimpleWordSubtraction = state(Interaction){
     onResponse<Number> {
         val userAnswer = it.intent.value
         if (userAnswer == answer){
+            if (EMOTION == "sad" || EMOTION == "fearful" || EMOTION == "disgust"){
+                furhat.gesture(Gestures.Nod(strength = 0.8))
+            }
             furhat.say("${userAnswer} is correct!")
             goto(UpdateCorrect)
         } else {
+            furhat.gesture(HeadDown)
             furhat.say("The correct answer is ${answer}.")
             goto(UpdateWrong)
         }
@@ -296,9 +381,13 @@ val SimpleAddition = state(Interaction){
     onResponse<Number> {
         val userAnswer = it.intent.value
         if (userAnswer == answer){
+            if (EMOTION == "sad" || EMOTION == "fearful" || EMOTION == "disgust"){
+                furhat.gesture(Gestures.Nod(strength = 0.8))
+            }
             furhat.say("${userAnswer} is correct!")
             goto(UpdateCorrect)
         } else {
+            furhat.gesture(HeadDown)
             furhat.say("The correct answer is ${answer}.")
             goto(UpdateWrong)
         }
@@ -325,9 +414,13 @@ val SimpleSubtraction = state(Interaction){
     onResponse<Number> {
         val userAnswer = it.intent.value
         if (userAnswer == answer){
+            if (EMOTION == "sad" || EMOTION == "fearful" || EMOTION == "disgust"){
+                furhat.gesture(Gestures.Nod(strength = 0.8))
+            }
             furhat.say("${userAnswer} is correct!")
             goto(UpdateCorrect)
         } else {
+            furhat.gesture(HeadDown)
             furhat.say("The correct answer is ${answer}.")
             goto(UpdateWrong)
         }
@@ -354,9 +447,13 @@ val InterWordAddition = state(Interaction){
     onResponse<Number> {
         val userAnswer = it.intent.value
         if (userAnswer == answer){
+            if (EMOTION == "sad" || EMOTION == "fearful" || EMOTION == "disgust"){
+                furhat.gesture(Gestures.Nod(strength = 0.8))
+            }
             furhat.say("${userAnswer} is correct!")
             goto(UpdateCorrect)
         } else {
+            furhat.gesture(HeadDown)
             furhat.say("The correct answer is ${answer}.")
             goto(UpdateWrong)
         }
@@ -383,9 +480,13 @@ val InterWordSubtraction = state(Interaction){
     onResponse<Number> {
         val userAnswer = it.intent.value
         if (userAnswer == answer){
+            if (EMOTION == "sad" || EMOTION == "fearful" || EMOTION == "disgust"){
+                furhat.gesture(Gestures.Nod(strength = 0.8))
+            }
             furhat.say("${userAnswer} is correct!")
             goto(UpdateCorrect)
         } else {
+            furhat.gesture(HeadDown)
             furhat.say("The correct answer is ${answer}.")
             goto(UpdateWrong)
         }
@@ -410,9 +511,13 @@ val InterAddition = state(Interaction){
     onResponse<Number> {
         val userAnswer = it.intent.value
         if (userAnswer == answer){
+            if (EMOTION == "sad" || EMOTION == "fearful" || EMOTION == "disgust"){
+                furhat.gesture(Gestures.Nod(strength = 0.8))
+            }
             furhat.say("${userAnswer} is correct!")
             goto(UpdateCorrect)
         } else {
+            furhat.gesture(HeadDown)
             furhat.say("The correct answer is ${answer}.")
             goto(UpdateWrong)
         }
@@ -438,9 +543,13 @@ val InterSubtraction = state(Interaction){
     onResponse<Number> {
         val userAnswer = it.intent.value
         if (userAnswer == answer){
+            if (EMOTION == "sad" || EMOTION == "fearful" || EMOTION == "disgust"){
+                furhat.gesture(Gestures.Nod(strength = 0.8))
+            }
             furhat.say("${userAnswer} is correct!")
             goto(UpdateCorrect)
         } else {
+            furhat.gesture(HeadDown)
             furhat.say("The correct answer is ${answer}.")
             goto(UpdateWrong)
         }
@@ -466,9 +575,13 @@ val AdvWordAddition = state(Interaction){
     onResponse<Number> {
         val userAnswer = it.intent.value
         if (userAnswer == answer){
+            if (EMOTION == "sad" || EMOTION == "fearful" || EMOTION == "disgust"){
+                furhat.gesture(Gestures.Nod(strength = 0.8))
+            }
             furhat.say("${userAnswer} is correct!")
             goto(UpdateCorrect)
         } else {
+            furhat.gesture(HeadDown)
             furhat.say("The correct answer is ${answer}.")
             goto(UpdateWrong)
         }
@@ -495,9 +608,13 @@ val AdvWordSubtraction = state(Interaction){
     onResponse<Number> {
         val userAnswer = it.intent.value
         if (userAnswer == answer){
+            if (EMOTION == "sad" || EMOTION == "fearful" || EMOTION == "disgust"){
+                furhat.gesture(Gestures.Nod(strength = 0.8))
+            }
             furhat.say("${userAnswer} is correct!")
             goto(UpdateCorrect)
         } else {
+            furhat.gesture(HeadDown)
             furhat.say("The correct answer is ${answer}.")
             goto(UpdateWrong)
         }
@@ -522,9 +639,13 @@ val AdvAddition = state(Interaction){
     onResponse<Number> {
         val userAnswer = it.intent.value
         if (userAnswer == answer){
+            if (EMOTION == "sad" || EMOTION == "fearful" || EMOTION == "disgust"){
+                furhat.gesture(Gestures.Nod(strength = 0.8))
+            }
             furhat.say("${userAnswer} is correct!")
             goto(UpdateCorrect)
         } else {
+            furhat.gesture(HeadDown)
             furhat.say("The correct answer is ${answer}.")
             goto(UpdateWrong)
         }
@@ -549,9 +670,13 @@ val AdvSubtraction = state(Interaction){
     onResponse<Number> {
         val userAnswer = it.intent.value
         if (userAnswer == answer){
+            if (EMOTION == "sad" || EMOTION == "fearful" || EMOTION == "disgust"){
+                furhat.gesture(Gestures.Nod(strength = 0.8))
+            }
             furhat.say("${userAnswer} is correct!")
             goto(UpdateCorrect)
         } else {
+            furhat.gesture(HeadDown)
             furhat.say("The correct answer is ${answer}.")
             goto(UpdateWrong)
         }
@@ -569,13 +694,15 @@ val GoodBye : State = state(Interaction){
             furhat.say("Good job ${users.current.info.name}! You get ${users.current.info.goldstars} gold ${if(users.current.info.goldstars == 1){"star"}else{"stars"}} for your hard work today!")
             furhat.ask("Did you have fun today?")
         } else {
-            println("HERE")
             furhat.say("You get 1 gold star for participating today ${users.current.info.name}. Take it easy and I am sure you will get better!")
             furhat.ask("Did you have fun today?")
         }
 
     }
     onResponse<Yes> {
+        if(EMOTION == "happy"){
+            furhat.gesture(Gestures.BigSmile)
+        }
         furhat.say("I am so happy to hear that! See you ${furhat.voice.prosody("later-alligator!" , rate = 1.1)}")
         goto(Idle)
     }
@@ -586,6 +713,7 @@ val GoodBye : State = state(Interaction){
 
 /* --------------------------------- QUESTIONS -----------------------------------*/
 
+// create utterance for equation questions
 fun EquationQuestion(first: Int, second: Int, sign: String) = utterance {
     random{
         +"What is ${first} ${sign} ${second}?"
@@ -593,6 +721,7 @@ fun EquationQuestion(first: Int, second: Int, sign: String) = utterance {
     }
 }
 
+// create utterance of word question for addition from examples
 fun AdditionWordQuestion(first: Int, second: Int): String {
     val questions = arrayOf(
             "Alex has ${first} ${if(first == 1){"apple"}else{"apples"}}. Zoe has ${second} ${if(second == 1){"apple"}else{"apples"}}. How many apples do they have together?",
@@ -610,6 +739,7 @@ fun AdditionWordQuestion(first: Int, second: Int): String {
     return questions.random()
 }
 
+// create utterance of word question for subtraction from examples
 fun SubtractionWordQuestion(first: Int, second: Int): String {
     val questions = arrayOf(
             "The King gave Jerry ${first} gold ${if(first == 1){"coin"}else{"coins"}}. He gave Elaine ${second} fewer ${if(second == 1){"coin"}else{"coins"}} than he gave Jerry. How many coins did Elaine get?",
@@ -632,7 +762,7 @@ fun SubtractionWordQuestion(first: Int, second: Int): String {
     return questions.random()
 }
 
-
+// when the user answered the question correctly, update user data such as correct questions in a row and level
 val UpdateCorrect : State = state(Interaction){
     onEntry {
         users.current.info.goldstars += 1
@@ -652,6 +782,7 @@ val UpdateCorrect : State = state(Interaction){
                 }
             }
             goto(GoodBye)
+            // 3 correct in a row: update level if user is not already in advanced
         } else if(users.current.info.correctInRow >= 3){
             furhat.say("Wow, you are on a roll!")
             users.current.info.correctInRow = 0
@@ -676,7 +807,7 @@ val UpdateCorrect : State = state(Interaction){
     }
 }
 
-
+// when the user answered the question wrong, update user data such as wrong questions in a row and level
 val UpdateWrong : State = state(Interaction){
     onEntry {
         users.current.info.question += 1
@@ -695,6 +826,7 @@ val UpdateWrong : State = state(Interaction){
                 }
             }
             goto(GoodBye)
+            // 3 wrong in a row: update level if user is not already in beginner
         } else if (users.current.info.correctInRow == -3){
             users.current.info.correctInRow = 0
             // update level if needed
@@ -715,6 +847,7 @@ val UpdateWrong : State = state(Interaction){
     }
 }
 
+// choose the question type randomly from the choices of user level
 val ChooseQuestion : State = state(Interaction){
     val questiontype = Random.nextInt(0, 4)
     onEntry {

@@ -3,3 +3,204 @@
 2020-11-03 23:30:20.232: happy 
 2020-11-03 23:30:26.813: angry 
 2020-11-03 23:30:29.456: happy 
+2020-11-04 20:10:47.891: happy 
+2020-11-04 20:10:48.809: neutral 
+2020-11-04 20:10:53.215: neutral 
+2020-11-04 20:11:17.336: neutral 
+2020-11-04 20:11:18.988: neutral 
+2020-11-04 20:11:38.643: neutral 
+2020-11-04 20:11:39.489: neutral 
+2020-11-04 20:11:56.854: neutral 
+2020-11-04 20:11:58.507: neutral 
+2020-11-04 20:12:19.645: fearful 
+2020-11-04 20:12:20.53: fearful 
+2020-11-04 20:12:27.431: Task Error. Traceback: [36mray::RayServeWorker_EmotionModel.handle_request()[39m (pid=24431, ip=192.168.200.220)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 132, in wrap_to_ray_error
+    raise exception
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 218, in invoke_single
+    result = await method_to_call(arg)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/async_compat.py", line 31, in wrapper
+    return func(*args, **kwargs)
+  File "predict_web_service.py", line 21, in __call__
+    in_data = json.loads(flask_request.args['np'])
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0). 
+2020-11-04 20:12:37.736: sad 
+2020-11-04 20:12:39.397: neutral 
+2020-11-04 20:15:32.573: fearful 
+2020-11-04 20:15:33.468: neutral 
+2020-11-04 20:27:36.611: neutral 
+2020-11-04 20:27:37.498: neutral 
+2020-11-04 20:27:48.604: neutral 
+2020-11-04 20:28:17.058: neutral 
+2020-11-04 20:28:22.162: neutral 
+2020-11-04 20:28:41.171: neutral 
+2020-11-04 20:28:51.71: neutral 
+2020-11-04 20:28:53.368: neutral 
+2020-11-04 20:28:59.326: neutral 
+2020-11-04 20:29:15.143: neutral 
+2020-11-04 20:29:19.918: neutral 
+2020-11-04 20:29:40.808: neutral 
+2020-11-04 20:29:41.667: neutral 
+2020-11-04 20:29:45.334: neutral 
+2020-11-04 20:30:01.258: neutral 
+2020-11-04 20:30:05.268: neutral 
+2020-11-04 20:30:25.371: neutral 
+2020-11-04 20:32:04.345: neutral 
+2020-11-04 20:32:05.228: neutral 
+2020-11-04 20:32:09.613: neutral 
+2020-11-04 20:32:26.362: neutral 
+2020-11-04 20:32:30.392: neutral 
+2020-11-04 20:32:50.651: neutral 
+2020-11-04 20:34:03.119: neutral 
+2020-11-04 20:34:04.007: neutral 
+2020-11-04 20:34:10.33: neutral 
+2020-11-04 20:34:11.988: neutral 
+2020-11-04 20:34:22.25: neutral 
+2020-11-04 20:34:28.271: neutral 
+2020-11-04 20:34:29.124: neutral 
+2020-11-04 20:34:59.903: neutral 
+2020-11-04 20:35:00.777: neutral 
+2020-11-04 20:35:25.887: neutral 
+2020-11-04 20:35:26.769: neutral 
+2020-11-04 20:35:32.848: neutral 
+2020-11-04 20:35:34.497: neutral 
+2020-11-04 20:36:03.658: neutral 
+2020-11-04 20:36:04.535: neutral 
+2020-11-04 20:36:48.486: neutral 
+2020-11-04 20:36:49.352: neutral 
+2020-11-04 20:37:09.043: neutral 
+2020-11-04 20:37:09.925: neutral 
+2020-11-04 20:37:39.447: neutral 
+2020-11-04 20:37:40.329: neutral 
+2020-11-04 20:39:13.584: neutral 
+2020-11-04 20:39:14.457: neutral 
+2020-11-04 20:39:21.094: neutral 
+2020-11-04 20:39:22.754: neutral 
+2020-11-04 20:39:30.061: neutral 
+2020-11-04 20:43:11.468: neutral 
+2020-11-04 20:43:12.431: neutral 
+2020-11-04 21:54:38.437: neutral 
+2020-11-04 21:54:39.427: neutral 
+2020-11-04 21:54:47.634: neutral 
+2020-11-04 21:54:49.343: neutral 
+2020-11-04 21:55:42.937: neutral 
+2020-11-04 21:55:43.867: neutral 
+2020-11-04 21:56:11.839: neutral 
+2020-11-04 21:56:12.744: neutral 
+2020-11-04 21:56:17.975: neutral 
+2020-11-04 21:57:21.933: neutral 
+2020-11-04 21:57:22.833: neutral 
+2020-11-04 21:58:09.442: neutral 
+2020-11-04 21:58:10.338: neutral 
+2020-11-04 21:59:33.541: neutral 
+2020-11-04 21:59:34.457: neutral 
+2020-11-04 21:59:39.011: neutral 
+2020-11-04 21:59:56.08: neutral 
+2020-11-04 22:00:00.133: neutral 
+2020-11-04 22:00:16.446: neutral 
+2020-11-04 22:10:18.792: happy 
+2020-11-04 22:10:19.711: neutral 
+2020-11-04 22:11:27.778: neutral 
+2020-11-04 22:11:43.647: neutral 
+2020-11-04 22:11:50.458: fearful 
+2020-11-04 22:12:13.863: neutral 
+2020-11-04 22:12:32.958: fearful 
+2020-11-04 22:12:32.963: neutral 
+2020-11-04 22:12:57.251: surprised 
+2020-11-04 22:12:58.387: neutral 
+2020-11-04 22:16:24.665: neutral 
+2020-11-04 22:16:25.627: fearful 
+2020-11-04 22:16:30.944: neutral 
+2020-11-04 22:16:34.815: fearful 
+2020-11-04 22:16:37.743: sad 
+2020-11-04 22:16:44.617: neutral 
+2020-11-04 22:16:53.812: neutral 
+2020-11-04 22:17:16.191: surprised 
+2020-11-04 22:17:21.265: neutral 
+2020-11-04 22:17:32.375: fearful 
+2020-11-04 22:17:37.397: surprised 
+2020-11-04 22:17:48.082: fearful 
+2020-11-04 22:17:48.957: fearful 
+2020-11-04 22:17:56.03: happy 
+2020-11-04 22:18:12.969: happy 
+2020-11-04 22:18:16.914: neutral 
+2020-11-04 22:18:29.763: surprised 
+2020-11-04 22:18:35.354: fearful 
+2020-11-04 22:18:36.934: fearful 
+2020-11-04 22:18:39.273: fearful 
+2020-11-04 22:18:43.337: sad 
+2020-11-04 22:19:01.28: neutral 
+2020-11-04 22:19:05.779: fearful 
+2020-11-04 22:19:24.746: fearful 
+2020-11-04 22:19:30.508: fearful 
+2020-11-04 22:19:32.237: fearful 
+2020-11-04 22:19:33.792: fearful 
+2020-11-04 22:19:38.051: neutral 
+2020-11-04 22:19:53.882: fearful 
+2020-11-04 22:19:57.844: fearful 
+2020-11-04 22:20:06.915: happy 
+2020-11-04 22:20:11.899: fearful 
+2020-11-04 22:20:18.339: fearful 
+2020-11-04 22:20:19.998: fearful 
+2020-11-04 22:20:24.182: fearful 
+2020-11-04 22:20:40.641: Task Error. Traceback: [36mray::RayServeWorker_EmotionModel.handle_request()[39m (pid=1048, ip=192.168.200.220)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 132, in wrap_to_ray_error
+    raise exception
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 218, in invoke_single
+    result = await method_to_call(arg)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/async_compat.py", line 31, in wrapper
+    return func(*args, **kwargs)
+  File "predict_web_service.py", line 21, in __call__
+    in_data = json.loads(flask_request.args['np'])
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0). 
+2020-11-04 22:20:44.601: fearful 
+2020-11-04 22:21:03.755: happy 
+2020-11-04 22:21:09.433: neutral 
+2020-11-05 11:27:18.698: neutral 
+2020-11-05 11:27:19.653: neutral 
+2020-11-05 11:27:24.57: neutral 
+2020-11-05 11:27:40.621: neutral 
+2020-11-05 11:27:44.672: neutral 
+2020-11-05 11:28:07.189: neutral 
+2020-11-05 11:28:24.006: neutral 
+2020-11-05 11:28:24.882: neutral 
+2020-11-05 11:28:28.562: neutral 
+2020-11-05 11:28:44.61: neutral 
+2020-11-05 11:28:48.648: neutral 
+2020-11-05 11:29:15.468: neutral 
+2020-11-05 11:29:54.992: neutral 
+2020-11-05 11:29:55.88: neutral 
+2020-11-05 11:29:59.859: neutral 
+2020-11-05 11:30:15.767: neutral 
+2020-11-05 11:30:19.79: neutral 
+2020-11-05 11:30:52.696: neutral 
+2020-11-05 11:31:30.907: neutral 
+2020-11-05 11:31:31.774: neutral 
+2020-11-05 11:31:35.673: neutral 
+2020-11-05 11:31:51.808: neutral 
+2020-11-05 11:31:55.837: neutral 
+2020-11-05 11:32:29.544: neutral 
+2020-11-05 11:32:54.072: neutral 
+2020-11-05 11:32:54.947: neutral 
+2020-11-05 11:32:59.04: neutral 
+2020-11-05 11:33:14.58: neutral 
+2020-11-05 11:33:18.611: neutral 
+2020-11-05 11:33:47.912: neutral 
+2020-11-05 11:33:51.564: neutral 
+2020-11-05 11:33:53.221: neutral 
+2020-11-05 11:33:56.969: neutral 
+2020-11-05 11:34:12.663: neutral 
+2020-11-05 11:34:16.595: neutral 
+2020-11-05 11:34:35.144: neutral 
