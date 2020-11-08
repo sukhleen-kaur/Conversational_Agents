@@ -11,7 +11,7 @@ The emotion detection model is written in Python3.7.
 ### Installing Dependencies
 To install the dependencies, you will need to use ```pip```.
 ```
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```
 ### Running Service
 We use [ray](https://docs.ray.io/en/master/serve/) serving for serving the tensorflow trained model as service to establish a service for the emotion detection model to link it to Furhat. For the first step we need to start the service and then run it for prediction.
