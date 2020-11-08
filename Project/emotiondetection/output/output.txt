@@ -1,0 +1,420 @@
+2020-11-08 17:40:59.395: fearful 
+2020-11-08 17:41:00.719: neutral 
+2020-11-08 17:41:04.851: neutral 
+2020-11-08 17:43:15.168: Task Error. Traceback: [36mray::RayServeWorker_EmotionModel.handle_request()[39m (pid=34824, ip=192.168.200.220)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 132, in wrap_to_ray_error
+    raise exception
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 218, in invoke_single
+    result = await method_to_call(arg)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/async_compat.py", line 31, in wrapper
+    return func(*args, **kwargs)
+  File "predict_web_service.py", line 21, in __call__
+    in_data = json.loads(flask_request.args['np'])
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0). 
+2020-11-08 17:43:16.444: sad 
+2020-11-08 17:43:21.041: neutral 
+2020-11-08 17:43:45.736: happy 
+2020-11-08 17:48:38.648: neutral 
+2020-11-08 17:48:39.791: Task Error. Traceback: [36mray::RayServeWorker_EmotionModel.handle_request()[39m (pid=34824, ip=192.168.200.220)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 132, in wrap_to_ray_error
+    raise exception
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 218, in invoke_single
+    result = await method_to_call(arg)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/async_compat.py", line 31, in wrapper
+    return func(*args, **kwargs)
+  File "predict_web_service.py", line 21, in __call__
+    in_data = json.loads(flask_request.args['np'])
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 8194 (char 8193). 
+2020-11-08 17:48:43.902: neutral 
+2020-11-08 17:49:01.163: neutral 
+2020-11-08 17:49:05.557: fearful 
+2020-11-08 17:49:25.385: happy 
+2020-11-08 17:49:36.886: neutral 
+2020-11-08 17:49:36.895: neutral 
+2020-11-08 17:49:51.432: neutral 
+2020-11-08 17:49:54.394: happy 
+2020-11-08 17:49:54.396: happy 
+2020-11-08 17:50:12.579: sad 
+2020-11-08 17:50:15.511: neutral 
+2020-11-08 17:50:15.586: Task Error. Traceback: [36mray::RayServeWorker_EmotionModel.handle_request()[39m (pid=34824, ip=192.168.200.220)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 132, in wrap_to_ray_error
+    raise exception
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 218, in invoke_single
+    result = await method_to_call(arg)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/async_compat.py", line 31, in wrapper
+    return func(*args, **kwargs)
+  File "predict_web_service.py", line 21, in __call__
+    in_data = json.loads(flask_request.args['np'])
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0). 
+2020-11-08 17:50:24.278: happy 
+2020-11-08 17:50:28.923: neutral 
+2020-11-08 17:50:28.931: neutral 
+2020-11-08 17:50:46.717: happy 
+2020-11-08 17:50:48.719: happy 
+2020-11-08 17:50:48.72: happy 
+2020-11-08 17:50:57.978: sad 
+2020-11-08 17:51:00.945: fearful 
+2020-11-08 17:51:00.953: fearful 
+2020-11-08 17:51:17.702: neutral 
+2020-11-08 17:51:19.501: angry 
+2020-11-08 17:51:19.509: angry 
+2020-11-08 17:51:26.394: neutral 
+2020-11-08 17:51:29.16: neutral 
+2020-11-08 17:51:29.167: neutral 
+2020-11-08 17:51:46.462: neutral 
+2020-11-08 17:51:46.474: neutral 
+2020-11-08 17:55:21.038: fearful 
+2020-11-08 17:55:21.98: fearful 
+2020-11-08 17:55:26.346: neutral 
+2020-11-08 17:55:43.775: sad 
+2020-11-08 17:55:48.244: neutral 
+2020-11-08 17:56:08.396: sad 
+2020-11-08 17:56:18.908: neutral 
+2020-11-08 17:56:18.919: neutral 
+2020-11-08 17:56:34.483: happy 
+2020-11-08 17:56:36.356: happy 
+2020-11-08 17:56:36.365: happy 
+2020-11-08 17:56:51.287: surprised 
+2020-11-08 17:56:54.387: neutral 
+2020-11-08 17:56:54.422: neutral 
+2020-11-08 17:57:00.883: neutral 
+2020-11-08 17:57:03.58: neutral 
+2020-11-08 17:57:03.582: neutral 
+2020-11-08 17:57:35.99: neutral 
+2020-11-08 17:57:37.8: neutral 
+2020-11-08 17:57:37.801: neutral 
+2020-11-08 17:59:57.97: sad 
+2020-11-08 17:59:59.236: neutral 
+2020-11-08 18:00:03.486: neutral 
+2020-11-08 18:00:20.98: happy 
+2020-11-08 18:00:25.393: happy 
+2020-11-08 18:00:39.864: happy 
+2020-11-08 18:00:58.217: sad 
+2020-11-08 18:00:58.23: sad 
+2020-11-08 18:01:09.45: happy 
+2020-11-08 18:01:13.049: sad 
+2020-11-08 18:01:13.082: sad 
+2020-11-08 18:01:22.059: neutral 
+2020-11-08 18:01:24.852: neutral 
+2020-11-08 18:01:24.86: neutral 
+2020-11-08 18:01:38.85: sad 
+2020-11-08 18:01:41.988: happy 
+2020-11-08 18:01:41.989: happy 
+2020-11-08 18:02:00.216: neutral 
+2020-11-08 18:02:03.144: neutral 
+2020-11-08 18:02:03.151: neutral 
+2020-11-08 18:02:14.803: sad 
+2020-11-08 18:02:17.668: happy 
+2020-11-08 18:02:17.67: happy 
+2020-11-08 18:02:32.82: sad 
+2020-11-08 18:02:37.496: sad 
+2020-11-08 18:02:37.503: sad 
+2020-11-08 18:02:46.424: sad 
+2020-11-08 18:02:49.267: sad 
+2020-11-08 18:02:49.29: sad 
+2020-11-08 18:03:00.578: happy 
+2020-11-08 18:03:01.614: happy 
+2020-11-08 18:05:47.786: neutral 
+2020-11-08 18:05:48.764: neutral 
+2020-11-08 18:06:12.399: Task Error. Traceback: [36mray::RayServeWorker_EmotionModel.handle_request()[39m (pid=34824, ip=192.168.200.220)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 132, in wrap_to_ray_error
+    raise exception
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 218, in invoke_single
+    result = await method_to_call(arg)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/async_compat.py", line 31, in wrapper
+    return func(*args, **kwargs)
+  File "predict_web_service.py", line 21, in __call__
+    in_data = json.loads(flask_request.args['np'])
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0). 
+2020-11-08 18:06:14.278: neutral 
+2020-11-08 18:06:18.561: happy 
+2020-11-08 18:06:36.562: neutral 
+2020-11-08 18:06:41.885: happy 
+2020-11-08 18:07:02.464: neutral 
+2020-11-08 18:07:12.358: happy 
+2020-11-08 18:07:12.37: happy 
+2020-11-08 18:07:21.902: happy 
+2020-11-08 18:07:25.776: happy 
+2020-11-08 18:07:25.819: happy 
+2020-11-08 18:07:41.408: happy 
+2020-11-08 18:07:44.775: sad 
+2020-11-08 18:07:44.783: sad 
+2020-11-08 18:08:07.161: neutral 
+2020-11-08 18:08:11.818: happy 
+2020-11-08 18:08:11.828: happy 
+2020-11-08 18:08:21.635: sad 
+2020-11-08 18:08:24.598: neutral 
+2020-11-08 18:08:24.6: neutral 
+2020-11-08 18:08:32.396: happy 
+2020-11-08 18:08:36.225: sad 
+2020-11-08 18:08:36.228: sad 
+2020-11-08 18:08:53.539: happy 
+2020-11-08 18:08:58.229: happy 
+2020-11-08 18:08:58.23: happy 
+2020-11-08 18:09:04.784: happy 
+2020-11-08 18:09:08.14: neutral 
+2020-11-08 18:09:08.17: neutral 
+2020-11-08 18:09:29.98: neutral 
+2020-11-08 18:09:29.992: neutral 
+2020-11-08 18:15:21.606: neutral 
+2020-11-08 18:15:22.87: neutral 
+2020-11-08 18:15:27.364: neutral 
+2020-11-08 18:15:36.399: happy 
+2020-11-08 18:15:54.131: happy 
+2020-11-08 18:15:58.366: neutral 
+2020-11-08 18:16:17.157: sad 
+2020-11-08 18:16:27.913: sad 
+2020-11-08 18:16:27.934: sad 
+2020-11-08 18:16:35.54: neutral 
+2020-11-08 18:16:38.43: neutral 
+2020-11-08 18:16:38.51: neutral 
+2020-11-08 18:18:32.522: sad 
+2020-11-08 18:18:34.139: neutral 
+2020-11-08 18:18:38.334: happy 
+2020-11-08 18:18:47.713: happy 
+2020-11-08 18:19:05.144: neutral 
+2020-11-08 18:19:09.426: neutral 
+2020-11-08 18:19:27.872: neutral 
+2020-11-08 18:19:59.042: happy 
+2020-11-08 18:19:59.296: happy 
+2020-11-08 18:20:10.723: neutral 
+2020-11-08 18:20:13.794: fearful 
+2020-11-08 18:20:13.795: fearful 
+2020-11-08 18:20:26.165: sad 
+2020-11-08 18:20:28.988: neutral 
+2020-11-08 18:20:29.009: neutral 
+2020-11-08 18:20:44.051: sad 
+2020-11-08 18:20:46.98: neutral 
+2020-11-08 18:20:47.009: Task Error. Traceback: [36mray::RayServeWorker_EmotionModel.handle_request()[39m (pid=34824, ip=192.168.200.220)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 132, in wrap_to_ray_error
+    raise exception
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 218, in invoke_single
+    result = await method_to_call(arg)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/async_compat.py", line 31, in wrapper
+    return func(*args, **kwargs)
+  File "predict_web_service.py", line 21, in __call__
+    in_data = json.loads(flask_request.args['np'])
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0). 
+2020-11-08 18:20:54.128: happy 
+2020-11-08 18:20:57.562: Task Error. Traceback: [36mray::RayServeWorker_EmotionModel.handle_request()[39m (pid=34824, ip=192.168.200.220)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 132, in wrap_to_ray_error
+    raise exception
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 218, in invoke_single
+    result = await method_to_call(arg)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/async_compat.py", line 31, in wrapper
+    return func(*args, **kwargs)
+  File "predict_web_service.py", line 21, in __call__
+    in_data = json.loads(flask_request.args['np'])
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0). 
+2020-11-08 18:20:57.565: Task Error. Traceback: [36mray::RayServeWorker_EmotionModel.handle_request()[39m (pid=34824, ip=192.168.200.220)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 132, in wrap_to_ray_error
+    raise exception
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 218, in invoke_single
+    result = await method_to_call(arg)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/async_compat.py", line 31, in wrapper
+    return func(*args, **kwargs)
+  File "predict_web_service.py", line 21, in __call__
+    in_data = json.loads(flask_request.args['np'])
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0). 
+2020-11-08 18:21:14.795: sad 
+2020-11-08 18:21:17.982: neutral 
+2020-11-08 18:21:17.984: neutral 
+2020-11-08 18:21:34.924: neutral 
+2020-11-08 18:21:37.904: happy 
+2020-11-08 18:21:37.973: happy 
+2020-11-08 18:21:50.171: sad 
+2020-11-08 18:21:53.337: sad 
+2020-11-08 18:21:53.339: sad 
+2020-11-08 18:22:10.046: neutral 
+2020-11-08 18:22:10.066: neutral 
+2020-11-08 18:24:14.471: neutral 
+2020-11-08 18:24:15.727: neutral 
+2020-11-08 18:24:19.866: sad 
+2020-11-08 18:24:38.618: sad 
+2020-11-08 18:24:40.468: sad 
+2020-11-08 18:24:44.552: fearful 
+2020-11-08 18:24:53.598: sad 
+2020-11-08 18:25:11.294: sad 
+2020-11-08 18:25:15.502: happy 
+2020-11-08 18:25:36.116: neutral 
+2020-11-08 18:25:47.191: sad 
+2020-11-08 18:25:47.207: sad 
+2020-11-08 18:26:10.279: sad 
+2020-11-08 18:26:13.31: happy 
+2020-11-08 18:26:13.32: happy 
+2020-11-08 18:26:27.954: neutral 
+2020-11-08 18:26:30.01: neutral 
+2020-11-08 18:26:30.013: neutral 
+2020-11-08 18:26:41.987: sad 
+2020-11-08 18:26:44.879: sad 
+2020-11-08 18:26:44.881: sad 
+2020-11-08 18:26:57.214: happy 
+2020-11-08 18:26:59.209: Task Error. Traceback: [36mray::RayServeWorker_EmotionModel.handle_request()[39m (pid=34824, ip=192.168.200.220)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 132, in wrap_to_ray_error
+    raise exception
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 218, in invoke_single
+    result = await method_to_call(arg)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/async_compat.py", line 31, in wrapper
+    return func(*args, **kwargs)
+  File "predict_web_service.py", line 21, in __call__
+    in_data = json.loads(flask_request.args['np'])
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0). 
+2020-11-08 18:26:59.225: Task Error. Traceback: [36mray::RayServeWorker_EmotionModel.handle_request()[39m (pid=34824, ip=192.168.200.220)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 132, in wrap_to_ray_error
+    raise exception
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/serve/backend_worker.py", line 218, in invoke_single
+    result = await method_to_call(arg)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/site-packages/ray/async_compat.py", line 31, in wrapper
+    return func(*args, **kwargs)
+  File "predict_web_service.py", line 21, in __call__
+    in_data = json.loads(flask_request.args['np'])
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/sukhleenkaur/opt/anaconda3/envs/emotiondetection2/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0). 
+2020-11-08 18:27:05.495: happy 
+2020-11-08 18:27:08.92: neutral 
+2020-11-08 18:27:08.95: neutral 
+2020-11-08 18:27:14.884: neutral 
+2020-11-08 18:27:17.732: neutral 
+2020-11-08 18:27:17.735: neutral 
+2020-11-08 18:27:25.131: neutral 
+2020-11-08 18:27:26.981: sad 
+2020-11-08 18:27:26.996: sad 
+2020-11-08 18:27:34.481: sad 
+2020-11-08 18:27:35.713: sad 
+2020-11-08 18:29:53.363: happy 
+2020-11-08 18:29:54.386: sad 
+2020-11-08 18:29:58.848: sad 
+2020-11-08 18:30:09.178: happy 
+2020-11-08 18:32:27.286: sad 
+2020-11-08 18:32:28.84: neutral 
+2020-11-08 18:32:33.663: neutral 
+2020-11-08 18:32:43.336: neutral 
+2020-11-08 18:32:55.985: sad 
+2020-11-08 18:33:00.23: fearful 
+2020-11-08 18:33:35.688: neutral 
+2020-11-08 18:33:58.009: neutral 
+2020-11-08 18:33:59.877: neutral 
+2020-11-08 18:34:04.501: neutral 
+2020-11-08 18:34:14.31: fearful 
+2020-11-08 18:34:25.83: neutral 
+2020-11-08 18:34:29.956: neutral 
+2020-11-08 18:34:49.907: neutral 
+2020-11-08 18:35:01.608: sad 
+2020-11-08 18:35:01.618: sad 
+2020-11-08 18:35:07.85: sad 
+2020-11-08 18:35:10.791: neutral 
+2020-11-08 18:35:10.801: neutral 
+2020-11-08 18:35:24.229: sad 
+2020-11-08 18:35:27.271: sad 
+2020-11-08 18:35:27.328: sad 
+2020-11-08 18:35:43.256: neutral 
+2020-11-08 18:35:45.28: sad 
+2020-11-08 18:35:45.284: sad 
+2020-11-08 18:35:54.179: sad 
+2020-11-08 18:35:57.357: fearful 
+2020-11-08 18:35:57.359: fearful 
+2020-11-08 18:36:03.651: fearful 
+2020-11-08 18:36:06.493: happy 
+2020-11-08 18:36:06.494: happy 
+2020-11-08 18:36:13.523: sad 
+2020-11-08 18:36:16.584: sad 
+2020-11-08 18:36:16.585: sad 
+2020-11-08 18:36:24.858: sad 
+2020-11-08 18:36:27.785: sad 
+2020-11-08 18:36:27.789: sad 
+2020-11-08 18:36:56.457: sad 
+2020-11-08 18:36:57.636: sad 
+2020-11-08 18:39:10.178: sad 
+2020-11-08 18:39:12.057: sad 
+2020-11-08 18:39:18.271: sad 
+2020-11-08 18:39:28.682: happy 
+2020-11-08 18:39:39.977: sad 
+2020-11-08 18:39:44.179: fearful 
+2020-11-08 18:40:11.142: sad 
+2020-11-08 18:40:30.693: sad 
+2020-11-08 18:40:30.756: sad 
+2020-11-08 18:40:46.136: neutral 
+2020-11-08 18:40:47.988: neutral 
+2020-11-08 18:40:53.01: neutral 
+2020-11-08 18:41:02.979: neutral 
+2020-11-08 18:41:14.414: neutral 
+2020-11-08 18:41:18.516: happy 
+2020-11-08 18:41:38.075: sad 
+2020-11-08 18:41:57.033: sad 
+2020-11-08 18:41:57.036: sad 
+2020-11-08 18:42:04.717: sad 
+2020-11-08 18:42:07.951: neutral 
+2020-11-08 18:42:08.027: neutral 
+2020-11-08 18:42:14.786: sad 
+2020-11-08 18:42:17.888: happy 
+2020-11-08 18:42:17.901: happy 
+2020-11-08 18:42:30.659: neutral 
+2020-11-08 18:42:32.651: neutral 
+2020-11-08 18:42:32.653: neutral 
+2020-11-08 18:42:39.558: neutral 
+2020-11-08 18:42:41.589: sad 
+2020-11-08 18:42:41.591: sad 
+2020-11-08 18:42:47.328: sad 
+2020-11-08 18:42:50.341: happy 
+2020-11-08 18:42:50.343: happy 
+2020-11-08 18:42:57.916: sad 
+2020-11-08 18:43:00.952: sad 
+2020-11-08 18:43:00.963: sad 
+2020-11-08 18:43:19.312: sad 
+2020-11-08 18:43:22.215: sad 
+2020-11-08 18:43:22.217: sad 
+2020-11-08 18:43:37.211: neutral 
+2020-11-08 18:43:38.287: happy 

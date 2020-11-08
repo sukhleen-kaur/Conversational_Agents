@@ -162,7 +162,7 @@ val AskKidName = state(KidName){
 // ask name after giving tutor info
 val AskKidNameInfo = state(KidName){
     onEntry {
-        furhat.say("Great! Today I will ask you a few questions to help you learn addition and subtraction. If you get a question correct, you will get 1 gold star!")
+        furhat.say("Great! If you get a question correct, you will get 1 gold star!")
         furhat.ask("Now, before we begin, please tell me your name.")
     }
     onReentry {
