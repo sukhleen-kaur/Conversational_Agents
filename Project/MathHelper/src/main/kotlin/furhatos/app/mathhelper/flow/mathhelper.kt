@@ -761,7 +761,7 @@ fun SubtractionWordQuestion(first: Int, second: Int): String {
             "The King gave Jerry ${first} gold ${if(first == 1){"coin"}else{"coins"}}. He gave Elaine ${second} fewer ${if(second == 1){"coin"}else{"coins"}} than he gave Jerry. How many coins did Elaine get?",
             "Sue is ${first} ${if(first == 1){"year"}else{"years"}} old. Her brother George is ${second} ${if(second == 1){"year"}else{"years"}} old. How many years older is Sue than George?",
             "Ross has ${first} ${if(first == 1){"dinosaur"}else{"dinosaurs"}}. Ted has ${second} ${if(second == 1){"dinosaur"}else{"dinosaurs"}}. How many fewer dinosaurs does Ted have than Ross?",
-            "Fiona fought a dragon with ${first} ${if(first == 1){"head"}else{"heads"}}. Then she fought another dragon with ${second} ${if(second == 1){"head"}else{"heads"}} fewer heads than the first dragon. How many heads did the second dragon have?",
+            "Fiona fought a dragon with ${first} ${if(first == 1){"head"}else{"heads"}}. Then she fought another dragon with ${second} fewer ${if(second == 1){"head"}else{"heads"}} than the first dragon. How many heads did the second dragon have?",
             "James has ${second} ${if(second == 1){"pencil"}else{"pencils"}}. Dave has ${first} ${if(first == 1){"pencil"}else{"pencils"}}. How many fewer pencils does James have than Dave?",
             "Yuri wrote ${first} ${if(first == 1){"book"}else{"books"}}. Hiro wrote ${second} ${if(second == 1){"book"}else{"books"}}. How many more books did Yuri write than Hiro?",
             "Yesterday Ali caught ${second} ${if(second == 1){"bug"}else{"bugs"}}. Today he caught ${first} ${if(first == 1){"bug"}else{"bugs"}}. How many fewer bugs did Ali catch yesterday the today?",
