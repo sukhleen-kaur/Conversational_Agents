@@ -1,6 +1,6 @@
 # Sally the Math Tutor
 
-This project involves creating a virtual conversational math tutor. We use Furhat SDK to do this. We also make use of the emotion detection model [here](https://github.com/atulapra/Emotion-detection). This model is modified to include a service that is provided to Furhat so the agent can retrieve the user's emotion. This file consists of:
+This project involves creating a virtual conversational math tutor. We use Furhat SDK to do this. We also make use of the emotion detection model [here](https://github.com/atulapra/Emotion-detection). This model is modified to include a service that is provided to Furhat so the agent can retrieve the user's emotion. The folder **Project** consists of:
 - **MathHelper** : the math tutor skill.
 - **emotiondetection** : the emotion detection model that predicts emotion in real-time.
 
