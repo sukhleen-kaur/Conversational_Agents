@@ -1,3 +1,0 @@
-17:55:35 [Skill] INFO  Skill:139 - Connecting to Furhat server on 0.0.0.0:1932
-17:55:35 [SpaceAssistSkill] INFO  SpaceAssistSkill:166 - Starting skill
-17:56:22 [pool-3-thread-1] ERROR IdfMultiIntentClassifier:249 - Could not find class for entity @wish in GetWish
